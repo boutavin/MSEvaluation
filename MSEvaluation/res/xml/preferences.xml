@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+    <PreferenceCategory android:title="Sensor settings" android:key="user_settings">
+        <EditTextPreference 
+        	android:key="notif_delay"
+        	android:title="Notification Delay"
+        	android:dialogTitle="Enter the notification time delay in milliseconds"
+       	/>
+        <EditTextPreference 
+        	android:key="sensor_delay"
+        	android:title="Sensor Delay"
+        	android:dialogTitle="Enter the sensor time delay in milliseconds"
+       	/>
+    </PreferenceCategory>
+    <PreferenceCategory android:title="User settings" android:key="user_settings">
+        <EditTextPreference 
+        	android:key="user_name"
+        	android:title="User Name"
+        	android:dialogTitle="Enter your name"
+       	/>
+        <EditTextPreference 
+        	android:key="user_number"
+        	android:title="User Phone number"
+        	android:dialogTitle="Enter your phone number"
+        	android:dialogMessage="Must contain only letters (no spaces or special characters)"
+       	/>
+    </PreferenceCategory>
+    <PreferenceCategory android:title="Contact settings" android:key="user_settings">
+        <EditTextPreference 
+        	android:key="contact_name"
+        	android:title="Contact Name"
+        	android:dialogTitle="Enter your name"
+       	/>
+        <EditTextPreference 
+        	android:key="contact_number"
+        	android:title="Contact Phone number"
+        	android:dialogTitle="Enter your phone number"
+        	android:dialogMessage="Must contain only letters (no spaces or special characters)"
+       	/>
+    </PreferenceCategory>
+</PreferenceScreen>
+    

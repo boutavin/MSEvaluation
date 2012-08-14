@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical"
+    android:gravity="center_vertical|center_horizontal" >
+    
+	<TextView
+	    android:id="@+id/title"
+	    android:layout_width="fill_parent"
+	    android:layout_height="wrap_content"
+        android:textSize="40dip"
+        android:text="EVALUATIONS"
+        android:textColor="#cd8b29"
+        android:gravity="center"
+        android:layout_marginBottom="50dip" />
+
+	<Button
+	    android:id="@+id/button1"
+	    android:layout_width="250dip"
+	    android:layout_height="wrap_content"
+	    android:text="Response Delay" 
+	    android:gravity="center"
+	    android:layout_marginBottom="20dip" />
+
+	<Button
+	    android:id="@+id/button2"
+	    android:layout_width="250dip"
+	    android:layout_height="wrap_content"
+	    android:text="Data traffic - Accelerometer scenario" 
+	    android:gravity="center" 
+	    android:layout_marginBottom="20dip"/>
+
+	<Button
+	    android:id="@+id/button3"
+	    android:layout_width="250dip"
+	    android:layout_height="wrap_content"
+	    android:text="Data traffic - Dummy scenario" 
+	    android:gravity="center" 
+	    android:layout_marginBottom="20dip"/>
+
+</LinearLayout>
