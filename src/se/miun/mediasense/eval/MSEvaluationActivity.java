@@ -10,6 +10,8 @@ import android.widget.Button;
 
 public class MSEvaluationActivity extends Activity implements OnClickListener {
     
+	Handler handler; // Handler to check internet connection
+
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -21,6 +23,9 @@ public class MSEvaluationActivity extends Activity implements OnClickListener {
 		responseDelay.setOnClickListener(this);
 		accScenario.setOnClickListener(this);
 		dummyScenario.setOnClickListener(this);
+
+		handler = new Handler();
+        handler.postAtTime(new ConnectionThread(), SystemClock.uptimeMillis());
 	}
 
 	@Override
@@ -36,5 +41,40 @@ public class MSEvaluationActivity extends Activity implements OnClickListener {
 				startActivity(new Intent(getApplicationContext(), DataTrafficActivity.class).putExtra("isAccScenario", false));
 				break;
 		}
+	}
+
+	/*
+	 * Thread checking the internet connection each 10 seconds
+	 * 
+	 * @see	if no internet connection, display AlertDialog 
+	 */
+	private class ConnectionThread implements Runnable{
+		@Override
+		public void run() {
+			if(!isOnline()){
+				AlertDialog.Builder dialog = new AlertDialog.Builder(MediaSenseAndroidExampleActivity.this);
+		        dialog.
+		        setMessage("No Internet Connection!").
+				setNeutralButton("OK", new DialogInterface.OnClickListener() {
+					@Override
+					public void onClick(DialogInterface dialog, int which) {
+						dialog.dismiss();
+						handler.postDelayed(new ConnectionThread(), 10000); // Check internet connection in 10 seconds
+					}
+				}).show();
+			}
+		}
+	}
+
+	/*
+	 * Check if phone has internet connection
+	 * 
+	 * @result	true if is online, false if not online
+	 */
+	public boolean isOnline() {
+	    ConnectivityManager cm = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
+
+	    return cm.getActiveNetworkInfo() != null && 
+	       cm.getActiveNetworkInfo().isConnectedOrConnecting();
 	}
 }
